@@ -38,9 +38,32 @@
     }
 
     function randomPosition() {
-      const randPositionNumber = randomIntFromInterval(1, 493);
+      const favoritePositions = [293, 229, 236, 482, 289, 143];
+      var initialPositionPos;
+      var positionToUse;
+      if (localStorage.position && localStorage.position < favoritePositions.length)
+      {
+        positionToUse = favoritePositions[localStorage.position];
+        localStorage.position++;
+      } else if (localStorage.position && localStorage.position >= favoritePositions.length) {
+        positionToUse = randomIntFromInterval(1, 493);
+      }
+      else
+      {
+        localStorage.position = 1;
+        positionToUse = favoritePositions[0];
+      }
+    
+      //const randPositionNumber = randomIntFromInterval(1, 493);
       window.location.href = "https://sexpositions.club/positions/" + randPositionNumber + ".html";
     }  
+
+    // 229 = eiffle tower (yoga like position)
+    // 236 = concubine
+    // 489 = chibi
+    // 482 = stickman
+    // 293 = shameless
+    // 143 = prone bone
   </script>
 </body>
 
